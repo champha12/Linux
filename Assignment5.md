@@ -30,6 +30,6 @@
 
 output:
 
-![output](img/output.png)
+![output](Image/output.png)
 
 ### Thank You
