@@ -1,4 +1,4 @@
-# Kush Patel
+# Champha Thapa
 
 # Assignment 5 - Scripting and cron
 
