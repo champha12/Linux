@@ -174,17 +174,17 @@ Virtualization
 * multipass list: List all running instance.
 * multipass info: View details about a specific instance.
 * multipass shell: Access to the shell of a running instance.
-![](image/Screenshot%202025-02-21%20012921.png)
+![hold](image/Screenshot%202025-02-21%20012921.png)
 * multipass exec: Run the command on the instance.
 * multipass stop: Stop the running instance.
 * multipass delete: Delete the instance. 
-![](image/Screenshot%202025-02-21%20013117.png)
+![hold](image/Screenshot%202025-02-21%20013117.png)
 
 3: Exploring LXD
 * LXD (Linux Container Daemon) is a next-generation system container manager built on LXC (Linux Containers). It provides a user-friendly interface to create and manage system containers and virtual machines (VMs), making it easier to run multiple isolated Linux environments on a single host.
 * LXD works like a lightweight alternative to virtual machines, offering the benefits of full Linux systems without the overhead of traditional VMs.
 * steps of how to run it.
-![](image/Screenshot%202025-02-21%20021713.png)
+![hold](image/Screenshot%202025-02-21%20021713.png)
 
 4: How to Stick Apps with Docker
 * Basic Docker Concepts
@@ -192,6 +192,6 @@ Virtualization
 Images: Read-only templates used to create containers.
 Containers: Running instances of Docker images.
 Dockerfiles: Scripts that gives instruction on how to build a Docker image.
-![](image/Screenshot%202025-02-21%20031136.png)
+![hold](image/Screenshot%202025-02-21%20031136.png)
 
 
