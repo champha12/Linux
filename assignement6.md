@@ -194,4 +194,72 @@ Containers: Running instances of Docker images.
 Dockerfiles: Scripts that gives instruction on how to build a Docker image.
 ![hold](image/Screenshot%202025-02-21%20031136.png)
 
+# Assignment 8 - Firewall
+3/2/2025
+# Champha Thapa, amk1004419@student.hamk.fi
 
+Outline:
+This guide outlines the configuration of a Linux server firewall using UFW (Uncomplicated Firewall) to secure server services and mitigate common network threats. It will enable essential services like OpenSSH, HTTP, and HTTPS while logging both permitted and blocked connections. Furthermore, it includes measures to defend against attacks such as SYN floods and ICMP floods.
+
+Install UFW:
+![alt text](image-1.png)
+
+# Define Firewall Rules:
+Firewall rules are security policies that control incoming and outgoing network traffic based on predefined conditions.
+1. Reset UFW to deafult
+```  sudo ufw --force reset
+```
+2. Default policies that blocks everything except allowed
+```sudo ufw default deny incoming
+sudo ufw default allow outgoing
+```
+![alt text](image-2.png)
+
+* SSH (Secure Shell) is used for remote server management, but open SSH ports are common attack vectors.
+Allow SSH, It's port is 22
+```sudo ufw allow 22/tcp
+```
+Web servers need to accept incoming HTTP and HTTPS traffic for website access.
+
+* Allow HTTP, It's port is 80
+```sudo ufw allow 80/tcp
+```
+* Allow HTTPS, It's port is 443
+``` sudo ufw allow 443/tcp
+```
+* Prevent SYN Flood attacks
+``` sudo ufw limit proto tcp from any to any port 22
+sudo ufw limit ssh comment 'Rate limit SSH connections'
+sudo ufw limit proto tcp from any to any port 80
+sudo ufw limit proto tcp from any to any port 443
+```
+![alt text](image-3.png)
+
+# Logging Configuration
+* Logging aids in tracking network activity, troubleshooting problems, and identifying possible security threats.
+* Enable logging
+![alt text](image-4.png)
+
+# SYN Flood Protection
+A SYN flood attack exploits the TCP handshake to exhaust server resources.
+
+* Add the following to
+``` sudo nano /etc/sysctl.conf
+```
+![alt text](image-5.png)
+# Block invalid packets
+Malicious actors often send malformed packets to bypass security measures and exploit system vulnerabilities.
+
+In a typical TCP Three-Way Handshake, every new connection begins with a SYN packet. However, if a TCP connection is initiated with an unexpected flag or an unusual combination—such as those used by port-scanning tools like Nmap—these packets should be blocked to enhance security.
+
+Add the following to sudo nano /etc/ufw/before.rules
+
+# Blocking Ping (ICMP) Requests
+
+Why Block ICMP?
+A ping flood attack, also known as an ICMP flood, is a type of Denial of Service (DoS) attack where an attacker overwhelms a system by sending a massive number of ICMP echo request packets (pings). This excessive traffic can consume network resources, slow down services, or even cause system crashes. Blocking or limiting ICMP requests helps protect against such attacks.
+# How to prevent ICMP requests
+1. Open the file sudo nano /etc/ufw/before.rules
+![alt text](image-6.png)
+![alt text](image-7.png)
+![alt text](image-8.png)
