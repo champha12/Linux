@@ -134,3 +134,12 @@ Following screenshot contains all the commands:
 ![Scheershot1](image/image2.png)
 
 Thank You 
+
+# Assignment 1 
+3/2/2025
+# Champha Thapa, amk1004419@student.hamk.fi
+Step 1 
+Install gcc and make a small C program 
+Then add my C program that take two numbers from the user and give sum of those two numbers.
+
+![alt text](image-9.png)
